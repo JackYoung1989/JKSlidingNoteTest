@@ -57,6 +57,25 @@
     
     JKSlidingNoteView *slidingNote3 = [[JKSlidingNoteView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label3.frame), label3.frame.origin.y, [UIScreen mainScreen].bounds.size.width, label3.frame.size.height) showingLinesCount:2 timerInterval:2 direction:JKSlidingNoteViewScrollDirectionGoDown titlesArray:@[@"1:Jack is a good boy",@"2:you r right",@"3:you r right..."]];
     [self.view addSubview:slidingNote3];
+	
+	//----------------------------------------------------------------------------------------
+	UILabel *label4 = [[UILabel alloc] initWithFrame:CGRectMake(0, 400, 88, 88)];
+	label4.text = @"公告新闻";
+	label4.textAlignment = NSTextAlignmentCenter;
+	label4.numberOfLines = 0;
+	label4.font = [UIFont boldSystemFontOfSize:25];
+	label4.textColor = [UIColor whiteColor];
+	label4.backgroundColor = [UIColor redColor];
+	[self.view addSubview:label4];
+	
+	JKSlidingNoteView *slidingNote4 = [[JKSlidingNoteView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(label4.frame), label4.frame.origin.y, [UIScreen mainScreen].bounds.size.width, label4.frame.size.height)];
+	[slidingNote4 setData:3 timerInterval:2 direction:JKSlidingNoteViewScrollDirectionGoUp titlesArray:@[@"1:Jack is a good boy",@"2:you r right",@"3:you r right..."]];
+	[self.view addSubview:slidingNote4];
+	
+	//5秒再更新数据
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[slidingNote4 setData:3 timerInterval:2 direction:JKSlidingNoteViewScrollDirectionGoUp titlesArray:@[@"1:更新了数据1",@"2:更新了数据2",@"3:更新了数据3..."]];
+	});
 }
 
 
