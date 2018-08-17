@@ -14,6 +14,7 @@ typedef NS_ENUM(NSInteger, JKSlidingNoteViewScrollDirection) {
 
 @interface JKSlidingNoteView : UIView
 
-@property (nonatomic, assign)JKSlidingNoteViewScrollDirection direction;
+- (void)setData: (NSInteger)showingLinesCount timerInterval:(CGFloat)timerInterval direction:(JKSlidingNoteViewScrollDirection)scrollDirection titlesArray:(NSArray *)titlesArray;
+
 - (instancetype)initWithFrame:(CGRect)frame showingLinesCount:(NSInteger)showingLinesCount timerInterval:(CGFloat)timerInterval direction:(JKSlidingNoteViewScrollDirection)scrollDirection titlesArray:(NSArray *)titlesArray;
 @end
